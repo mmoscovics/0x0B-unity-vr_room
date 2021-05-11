@@ -5,18 +5,19 @@ using UnityEngine;
 public class ProjectorHandler : MonoBehaviour
 {
     public GameObject particle;
+    public bool broken = true;
 
-    // Start is called before the first frame update
-    void Start()
+    public void fixit()
     {
-
+        broken = false;
     }
 
     public void Interact()
     {
-        if (particle.activeSelf == true)
-            particle.SetActive(false);
-        else
-            particle.SetActive(true);
+        if (broken == false)
+            if (particle.activeSelf == true)
+                particle.SetActive(false);
+            else
+                particle.SetActive(true);
     }
 }
